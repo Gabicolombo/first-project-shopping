@@ -13,7 +13,9 @@ export class DataStorageService {
     private authService: AuthService) { }
 
   storeRecipes() {
+    console.log('storeRecipes');
     const recipes = this.recipeService.getRecipes();
+    console.log(recipes);
     this.http
       .put('https://ng-course-recipe-book-9f470-default-rtdb.firebaseio.com/recipes.json',
         recipes).subscribe(response => console.log(response));
@@ -24,6 +26,7 @@ export class DataStorageService {
       .get<Recipe[]>(
         'https://ng-course-recipe-book-9f470-default-rtdb.firebaseio.com/recipes.json',
       ).pipe(map(recipes => {
+        console.log(recipes);
         return recipes.map(recipe => {
           return {
             ...recipe,
