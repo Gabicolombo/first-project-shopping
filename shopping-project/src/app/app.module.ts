@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule } from '@ngrx/router-store'
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -33,6 +33,7 @@ import { RecipeEffects } from './recipes/store/recipe.effects';
     EffectsModule.forRoot([AuthEffects, RecipeEffects]),
     StoreDevtoolsModule.instrument({logOnly: environment.production}),
     StoreRouterConnectingModule.forRoot(),
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent],
   entryComponents: [PlaceholderDirective]
